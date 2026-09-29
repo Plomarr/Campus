@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Семантический HTML без лишних div — CampusFlow</title>
+</head>
+<body>
+
+<a href="#main-content">Перейти к основному содержимому</a>
+
+<header>
+    <p>
+        <img src="assets/images/Campus.jpg" alt="" width="28" height="28">
+        <strong>CampusFlow</strong>
+    </p>
+
+    <nav aria-label="Основная навигация">
+        <ul>
+            <li><a href="index.html">Каталог</a></li>
+            <li><a href="my-events.html">Мои события</a></li>
+            <li><a href="profile.html">Профиль</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="main-content">
+
+    <p><a href="index.html">← Назад к каталогу</a></p>
+
+    <article aria-labelledby="event-title">
+        <p>Frontend</p>
+        <h1 id="event-title">Семантический HTML без лишних div</h1>
+        <p>Разберём структуру страницы, landmark-области и доступные формы.</p>
+
+        <dl>
+            <dt>Дата</dt>
+            <dd>18 сентября · 16:00</dd>
+            <dt>Место</dt>
+            <dd>Аудитория 304</dd>
+            <dt>Длительность</dt>
+            <dd>90 минут</dd>
+        </dl>
+    </article>
+
+    <section aria-labelledby="tab-description-heading">
+        <h2 id="tab-description-heading">Описание</h2>
+
+        <h3>О мероприятии</h3>
+        <p>На занятии участники научатся выбирать семантические элементы страницы, определять границы компонентов и проверять структуру документа до стилизации.</p>
+
+        <h3>Что будет на встрече</h3>
+        <ul>
+            <li>landmark-элементы: header, nav, main, aside, footer;</li>
+            <li>article и section: когда использовать;</li>
+            <li>формы, label, состояния ошибок;</li>
+            <li>небольшой разбор реального макета.</li>
+        </ul>
+    </section>
+
+    <section aria-labelledby="tab-program-heading">
+        <h2 id="tab-program-heading">Программа</h2>
+        <p>Программа мероприятия появится ближе к дате начала.</p>
+    </section>
+
+    <section aria-labelledby="tab-speakers-heading">
+        <h2 id="tab-speakers-heading">Спикеры</h2>
+        <p>Список спикеров появится ближе к дате начала.</p>
+    </section>
+
+    <aside aria-labelledby="registration-heading">
+        <h2 id="registration-heading">Запись на мероприятие</h2>
+        <p>Осталось 18 из 40 мест</p>
+
+        <a href="register.html">Записаться</a>
+
+        <button type="button" aria-pressed="false">В избранное</button>
+
+        <p>
+            <span>Организатор</span><br>
+            <strong>Кафедра веб-технологий</strong>
+        </p>
+    </aside>
+
+</main>
+
+<footer>
+    <p>Учебный проект CampusFlow</p>
+</footer>
+
+</body>
+</html>

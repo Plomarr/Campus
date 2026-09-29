@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Регистрация на мероприятие — CampusFlow</title>
+</head>
+<body>
+
+<a href="#main-content">Перейти к основному содержимому</a>
+
+<header>
+    <p>
+        <img src="assets/images/Campus.jpg" alt="" width="28" height="28">
+        <strong>CampusFlow</strong>
+    </p>
+
+    <nav aria-label="Основная навигация">
+        <ul>
+            <li><a href="index.html">Каталог</a></li>
+            <li><a href="my-events.html">Мои события</a></li>
+            <li><a href="profile.html" aria-current="page">Профиль</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="main-content">
+
+    <h1>Регистрация на мероприятие</h1>
+    <p>Заполните данные. Поля со звёздочкой обязательны.</p>
+
+    <form action="#" method="post">
+
+        <h2>Контактные данные</h2>
+
+        <div>
+            <label for="full-name">Имя и фамилия *</label>
+            <input id="full-name"
+                   name="fullName"
+                   type="text"
+                   autocomplete="name"
+                   required>
+        </div>
+
+        <div>
+            <label for="email">E-mail *</label>
+            <input id="email"
+                   name="email"
+                   type="email"
+                   autocomplete="email"
+                   required
+                   aria-describedby="email-error">
+            <p id="email-error" hidden>Введите корректный e-mail</p>
+        </div>
+
+        <div>
+            <label for="group">Группа / команда</label>
+            <input id="group"
+                   name="group"
+                   type="text">
+        </div>
+
+        <fieldset>
+            <legend>Формат участия *</legend>
+            <label>
+                <input type="radio" name="format" value="offline" checked required>
+                Очно
+            </label>
+            <label>
+                <input type="radio" name="format" value="online">
+                Онлайн
+            </label>
+        </fieldset>
+
+        <div>
+            <label for="comment">Комментарий</label>
+            <textarea id="comment"
+                      name="comment"
+                      rows="4"
+                      aria-describedby="comment-hint"></textarea>
+            <p id="comment-hint">Например, вопрос организатору</p>
+        </div>
+
+        <div>
+            <label>
+                <input type="checkbox" name="consent" required>
+                Я согласен с правилами участия
+            </label>
+        </div>
+
+        <button type="submit">Отправить заявку</button>
+        <a href="event-1.html">Отмена</a>
+
+    </form>
+
+</main>
+
+<footer>
+    <p>Учебный проект CampusFlow</p>
+</footer>
+
+</body>
+</html>

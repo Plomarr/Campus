@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Каталог — CampusFlow</title>
+</head>
+<body>
+
+<a href="#main-content">Перейти к основному содержимому</a>
+
+<header>
+  <p>
+    <img src="assets/images/Campus.jpg" alt="" width="28" height="28">
+    <strong>CampusFlow</strong>
+  </p>
+
+  <nav aria-label="Основная навигация">
+    <ul>
+      <li><a href="index.html" aria-current="page">Каталог</a></li>
+      <li><a href="my-events.html">Мои события</a></li>
+      <li><a href="profile.html">Профиль</a></li>
+    </ul>
+  </nav>
+
+  <form role="search" action="#" method="get">
+    <label for="search-input">Поиск по названию или теме</label>
+    <input id="search-input" name="q" type="search">
+    <button type="submit">Найти</button>
+  </form>
+</header>
+
+<main id="main-content">
+  <h1>Учебные мероприятия</h1>
+  <p>Найдите лекцию, мастер-класс или встречу по интересам.</p>
+
+  <div>
+    <label for="sort-select">Сортировка</label>
+    <select id="sort-select" name="sort">
+      <option value="new" selected>Сначала новые</option>
+      <option value="popular">По популярности</option>
+    </select>
+    <button type="button">Сбросить</button>
+  </div>
+
+  <fieldset>
+    <legend>Фильтр по теме</legend>
+    <button type="button" aria-pressed="true">Все</button>
+    <button type="button" aria-pressed="false">Frontend</button>
+    <button type="button" aria-pressed="false">Backend</button>
+    <button type="button" aria-pressed="false">UX/UI</button>
+    <button type="button" aria-pressed="false">Карьера</button>
+  </fieldset>
+
+  <section aria-labelledby="results-heading">
+    <h2 id="results-heading">Результаты — 24 события</h2>
+
+    <ul>
+      <li>
+        <article aria-labelledby="event-1-title">
+          <p>Frontend</p>
+          <h3 id="event-1-title">Семантический HTML без лишних div</h3>
+          <p>18 сентября · 16:00 · Аудитория 304</p>
+          <p>Осталось 18 мест</p>
+          <button type="button" aria-pressed="false">Добавить в избранное</button>
+          <a href="event-1.html">Подробнее о мероприятии «Семантический HTML без лишних div»</a>
+        </article>
+      </li>
+
+      <li>
+        <article aria-labelledby="event-2-title">
+          <p>Инструменты</p>
+          <h3 id="event-2-title">Git без страха</h3>
+          <p>19 сентября · 14:30 · Online</p>
+          <p>Осталось 8 мест</p>
+          <button type="button" aria-pressed="true">Добавить в избранное</button>
+          <a href="event-2.html">Подробнее о мероприятии «Git без страха»</a>
+        </article>
+      </li>
+
+      <li>
+        <article aria-labelledby="event-3-title">
+          <p>UX/UI</p>
+          <h3 id="event-3-title">UX-разбор интерфейсов</h3>
+          <p>21 сентября · 17:00 · Коворкинг</p>
+          <p>Осталось 5 мест</p>
+          <button type="button" aria-pressed="false">Добавить в избранное</button>
+          <a href="event-3.html">Подробнее о мероприятии «UX-разбор интерфейсов»</a>
+        </article>
+      </li>
+    </ul>
+  </section>
+
+  <aside aria-labelledby="filters-heading">
+    <h2 id="filters-heading">Мои фильтры</h2>
+    <form action="#" method="get">
+      <div>
+        <label for="date-filter">Дата</label>
+        <select id="date-filter" name="date">
+          <option value="week" selected>На этой неделе</option>
+          <option value="month">В этом месяце</option>
+        </select>
+      </div>
+
+      <fieldset>
+        <legend>Формат</legend>
+        <label><input type="checkbox" name="format" value="offline" checked> Очно</label>
+        <label><input type="checkbox" name="format" value="online"> Онлайн</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Уровень</legend>
+        <label><input type="radio" name="level" value="all" checked> Для всех</label>
+        <label><input type="radio" name="level" value="beginner"> Начальный</label>
+        <label><input type="radio" name="level" value="advanced"> Продвинутый</label>
+      </fieldset>
+
+      <button type="submit">Применить</button>
+    </form>
+  </aside>
+
+</main>
+
+<footer>
+  <p>Учебный проект CampusFlow</p>
+</footer>
+
+</body>
+</html>
