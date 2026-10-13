@@ -155,7 +155,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 .header-search { margin-left: auto; }
 .header-search input {
-  width: 214px;
+  width: clamp(140px, 15vw, 214px);       /* 214 при 1440, сжимается на узких экранах */
   height: 44px;
   padding-inline: var(--s2);
   border: 0;
@@ -182,12 +182,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .page { padding-top: 22px; }              /* шапка -> заголовок */
 
 .page__title {
-  font-size: clamp(28px, 2.57vw, 37px);   /* 37 при 1440 */
+  /* fluid: 28px при 640px -> 37px при 1440px; rem-часть сохраняет масштаб при увеличении шрифта */
+  font-size: clamp(1.75rem, 1.3rem + 1.125vw, 2.3125rem);
   line-height: 1.108;                     /* 41px при 37px */
   font-weight: 700;
 }
 .page__subtitle {
-  margin-top: 8px;                        /* заголовок -> подзаголовок */
+  margin-top: var(--s1);                  /* заголовок -> подзаголовок */
   font-size: 16px;
   line-height: 19px;
   color: var(--muted);
@@ -217,7 +218,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   width: 180px;
   height: 52px;
   margin-left: 20px;                      /* ~ */
-  padding: 0 36px 0 24px;
+  padding: 0 36px 0 var(--s3);
   border: 1px solid var(--border);
   border-radius: var(--radius-control);
   background-color: var(--surface);
@@ -234,7 +235,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   flex: none;
   width: 110px;
   height: 48px;                           /* ниже остальных, по центру ряда */
-  margin-left: 16px;                      /* ~ */
+  margin-left: var(--s2);                 /* ~ */
 }
 
 /* ---------- 8. Чипы-фильтры ---------- */
@@ -258,9 +259,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
   font-weight: 700;
 }
 .chip {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;                /* слишком длинная подпись обрезается */
+  white-space: nowrap;
   min-width: 76px;
   height: 36px;
-  padding-inline: 16px;                   /* ширины должны выйти 76/100/91/76/91 */
+  padding-inline: var(--s2);              /* ширины должны выйти 76/100/91/76/91 */
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface);
@@ -292,7 +297,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));   /* при 1440 каждая = 350 */
-  gap: 17px 16px;                         /* по вертикали / по горизонтали */
+  gap: 17px var(--s2);                    /* по вертикали / по горизонтали */
 }
 .cards > li { display: flex; min-width: 0; }
 
@@ -361,7 +366,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 .card__tag {
   align-self: flex-start;
-  margin-top: 16px;                       /* ~ */
+  max-width: 100%;                        /* не шире карточки */
+  overflow-wrap: anywhere;                /* длинное слово переносится */
+  margin-top: var(--s2);                  /* ~ */
   padding: 7px 13px;                      /* ~ */
   border-radius: 999px;
   background: var(--tint);
@@ -432,10 +439,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 
 .filter-group { margin: 0; padding: 0; border: 0; min-width: 0; }
-.filter-group--format { margin-top: 24px; }
+.filter-group--format { margin-top: var(--s3); }
 .filter-group--format legend { margin-bottom: 17px; }
 .filter-group--level { margin-top: 31px; }
-.filter-group--level legend { margin-bottom: 16px; }
+.filter-group--level legend { margin-bottom: var(--s2); }
 
 .filter-option {
   display: flex;
@@ -443,7 +450,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   gap: 10px;                              /* ~ */
   height: 17px;
 }
-.filter-option + .filter-option { margin-top: 16px; }
+.filter-option + .filter-option { margin-top: var(--s2); }
 .filter-option input { width: 16px; height: 16px; margin: 0; accent-color: var(--primary); }
 
 .filters-panel__apply {
@@ -496,12 +503,12 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .catalog,
   .chips-row { grid-template-columns: minmax(0, 1fr); }
   .results-count { text-align: left; }
+  .site-header__inner { flex-wrap: wrap; row-gap: var(--s1); padding-block: var(--s2); }
 }
 @media (max-width: 600px) {
   .cards { grid-template-columns: minmax(0, 1fr); }
   .toolbar { flex-wrap: wrap; gap: var(--s1); }
   .toolbar__search { flex-basis: 100%; }
   .toolbar__sort, .toolbar__reset { margin-left: 0; }
-  .site-header__inner { flex-wrap: wrap; padding-block: var(--s2); }
   .main-nav { margin-left: 0; }
 }
