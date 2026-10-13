@@ -3,88 +3,204 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Семантический HTML без лишних div — CampusFlow</title>
+    <title>Каталог — CampusFlow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/style.css">
 </head>
 <body>
 
-<a href="#main-content">Перейти к основному содержимому</a>
+<a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
 
-<header>
-    <p>
-        <img src="assets/images/Campus.jpg" alt="" width="28" height="28">
-        <strong>CampusFlow</strong>
-    </p>
+<header class="site-header">
+    <div class="container site-header__inner">
+        <p class="brand">
+            <img class="brand__logo" src="assets/images/campusflow-logo.svg" alt="" width="40" height="40">
+            <strong class="brand__name">CampusFlow</strong>
+        </p>
 
-    <nav aria-label="Основная навигация">
-        <ul>
-            <li><a href="index.html">Каталог</a></li>
-            <li><a href="my-events.html">Мои события</a></li>
-            <li><a href="profile.html">Профиль</a></li>
-        </ul>
-    </nav>
+        <nav class="main-nav" aria-label="Основная навигация">
+            <ul>
+                <li><a href="index.html" aria-current="page">Каталог</a></li>
+                <li><a href="my-events.html">Мои события</a></li>
+                <li><a href="profile.html">Профиль</a></li>
+            </ul>
+        </nav>
+
+        <form class="header-search" role="search" aria-label="Поиск по сайту" action="#" method="get">
+            <label class="visually-hidden" for="search-input">Поиск по сайту</label>
+            <input id="search-input" name="q" type="search" placeholder="Поиск">
+        </form>
+
+        <span class="avatar" aria-hidden="true">AV</span>
+    </div>
 </header>
 
-<main id="main-content">
+<main id="main-content" class="container page">
+    <h1 class="page__title">Учебные мероприятия</h1>
+    <p class="page__subtitle">Найдите лекцию, мастер-класс или встречу по интересам.</p>
 
-    <p><a href="index.html">← Назад к каталогу</a></p>
+    <form class="toolbar" role="search" aria-label="Поиск мероприятий" action="#" method="get">
+        <label class="visually-hidden" for="catalog-search">Поиск по названию или теме</label>
+        <input class="toolbar__search" id="catalog-search" name="q" type="search"
+               placeholder="Поиск по названию или теме...">
 
-    <article aria-labelledby="event-title">
-        <p>Frontend</p>
-        <h1 id="event-title">Семантический HTML без лишних div</h1>
-        <p>Разберём структуру страницы, landmark-области и доступные формы.</p>
+        <label class="visually-hidden" for="sort-select">Сортировка</label>
+        <select class="toolbar__sort" id="sort-select" name="sort">
+            <option value="new" selected>Сначала новые</option>
+            <option value="popular">По популярности</option>
+        </select>
 
-        <dl>
-            <dt>Дата</dt>
-            <dd>18 сентября · 16:00</dd>
-            <dt>Место</dt>
-            <dd>Аудитория 304</dd>
-            <dt>Длительность</dt>
-            <dd>90 минут</dd>
-        </dl>
-    </article>
+        <button class="btn toolbar__reset" type="reset">Сбросить</button>
+    </form>
 
-    <section aria-labelledby="tab-description-heading">
-        <h2 id="tab-description-heading">Описание</h2>
+    <div class="chips-row">
+        <div class="chips" role="group" aria-labelledby="chips-label">
+            <span class="chips__label" id="chips-label">Фильтры:</span>
+            <button class="chip" type="button" aria-pressed="true">Все</button>
+            <button class="chip" type="button" aria-pressed="false">Frontend</button>
+            <button class="chip" type="button" aria-pressed="false">Backend</button>
+            <button class="chip" type="button" aria-pressed="false">UX/UI</button>
+            <button class="chip" type="button" aria-pressed="false">Карьера</button>
+        </div>
+        <p class="results-count">24 события</p>
+    </div>
 
-        <h3>О мероприятии</h3>
-        <p>На занятии участники научатся выбирать семантические элементы страницы, определять границы компонентов и проверять структуру документа до стилизации.</p>
+    <div class="catalog">
+        <section aria-labelledby="results-heading">
+            <h2 class="visually-hidden" id="results-heading">Результаты — 24 события</h2>
 
-        <h3>Что будет на встрече</h3>
+            <ul class="cards">
+                <li>
+                    <article class="card" aria-labelledby="event-1-title">
+                        <div class="card__media">
+                            <span class="card__icon" aria-hidden="true"></span>
+                            <button class="card__fav" type="button" aria-pressed="false"
+                                    aria-label="Добавить в избранное: Семантический HTML"></button>
+                        </div>
+                        <p class="card__tag">Frontend</p>
+                        <h3 class="card__title" id="event-1-title"><a href="event-1.html">Семантический HTML</a></h3>
+                        <p class="card__meta">18 сен · 16:00 · ауд. 304</p>
+                        <p class="card__seats">18 мест</p>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="card" aria-labelledby="event-2-title">
+                        <div class="card__media">
+                            <span class="card__icon" aria-hidden="true"></span>
+                            <button class="card__fav" type="button" aria-pressed="true"
+                                    aria-label="Добавить в избранное: Git без страха"></button>
+                        </div>
+                        <p class="card__tag">Инструменты</p>
+                        <h3 class="card__title" id="event-2-title"><a href="event-2.html">Git без страха</a></h3>
+                        <p class="card__meta">19 сен · 14:30 · online</p>
+                        <p class="card__seats">8 мест</p>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="card" aria-labelledby="event-3-title">
+                        <div class="card__media">
+                            <span class="card__icon" aria-hidden="true"></span>
+                            <button class="card__fav" type="button" aria-pressed="false"
+                                    aria-label="Добавить в избранное: UX-разбор интерфейсов"></button>
+                        </div>
+                        <p class="card__tag">UX/UI</p>
+                        <h3 class="card__title" id="event-3-title"><a href="event-3.html">UX-разбор интерфейсов</a></h3>
+                        <p class="card__meta">21 сен · 17:00 · коворкинг</p>
+                        <p class="card__seats">5 мест</p>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="card" aria-labelledby="event-4-title">
+                        <div class="card__media">
+                            <span class="card__icon" aria-hidden="true"></span>
+                            <button class="card__fav" type="button" aria-pressed="false"
+                                    aria-label="Добавить в избранное: REST API на практике"></button>
+                        </div>
+                        <p class="card__tag">Backend</p>
+                        <h3 class="card__title" id="event-4-title"><a href="event-4.html">REST API на практике</a></h3>
+                        <p class="card__meta">23 сен · 15:00 · ауд. 211</p>
+                        <p class="card__seats">14 мест</p>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="card" aria-labelledby="event-5-title">
+                        <div class="card__media">
+                            <span class="card__icon" aria-hidden="true"></span>
+                            <button class="card__fav" type="button" aria-pressed="false"
+                                    aria-label="Добавить в избранное: Портфолио разработчика"></button>
+                        </div>
+                        <p class="card__tag">Карьера</p>
+                        <h3 class="card__title" id="event-5-title"><a href="event-5.html">Портфолио разработчика</a></h3>
+                        <p class="card__meta">25 сен · 18:00 · online</p>
+                        <p class="card__seats">32 места</p>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="card" aria-labelledby="event-6-title">
+                        <div class="card__media">
+                            <span class="card__icon" aria-hidden="true"></span>
+                            <button class="card__fav" type="button" aria-pressed="true"
+                                    aria-label="Добавить в избранное: Доступность в вебе"></button>
+                        </div>
+                        <p class="card__tag">Frontend</p>
+                        <h3 class="card__title" id="event-6-title"><a href="event-6.html">Доступность в вебе</a></h3>
+                        <p class="card__meta">27 сен · 13:00 · ауд. 118</p>
+                        <p class="card__seats">10 мест</p>
+                    </article>
+                </li>
+            </ul>
+        </section>
+
+        <aside class="filters-panel" aria-labelledby="filters-heading">
+            <h2 id="filters-heading">Мои фильтры</h2>
+            <form action="#" method="get">
+                <div>
+                    <label class="filters-panel__label" for="date-filter">Дата</label>
+                    <select id="date-filter" name="date">
+                        <option value="week" selected>На этой неделе</option>
+                        <option value="month">В этом месяце</option>
+                    </select>
+                </div>
+
+                <fieldset class="filter-group filter-group--format">
+                    <legend>Формат</legend>
+                    <label class="filter-option"><input type="checkbox" name="format" value="offline" checked> Очно</label>
+                    <label class="filter-option"><input type="checkbox" name="format" value="online"> Онлайн</label>
+                </fieldset>
+
+                <fieldset class="filter-group filter-group--level">
+                    <legend>Уровень</legend>
+                    <label class="filter-option"><input type="radio" name="level" value="all" checked> Для всех</label>
+                    <label class="filter-option"><input type="radio" name="level" value="beginner"> Начальный</label>
+                    <label class="filter-option"><input type="radio" name="level" value="advanced"> Продвинутый</label>
+                </fieldset>
+
+                <button class="btn btn--primary filters-panel__apply" type="submit">Применить</button>
+            </form>
+        </aside>
+    </div>
+
+    <nav class="pagination" aria-label="Страницы результатов">
         <ul>
-            <li>landmark-элементы: header, nav, main, aside, footer;</li>
-            <li>article и section: когда использовать;</li>
-            <li>формы, label, состояния ошибок;</li>
-            <li>небольшой разбор реального макета.</li>
+            <li><a href="?page=1" aria-label="Предыдущая страница">‹</a></li>
+            <li><a href="?page=1" aria-current="page">1</a></li>
+            <li><a href="?page=2">2</a></li>
+            <li><a href="?page=3">3</a></li>
+            <li><span aria-hidden="true">…</span></li>
+            <li><a href="?page=8">8</a></li>
+            <li><a href="?page=2" aria-label="Следующая страница">›</a></li>
         </ul>
-    </section>
-
-    <section aria-labelledby="tab-program-heading">
-        <h2 id="tab-program-heading">Программа</h2>
-        <p>Программа мероприятия появится ближе к дате начала.</p>
-    </section>
-
-    <section aria-labelledby="tab-speakers-heading">
-        <h2 id="tab-speakers-heading">Спикеры</h2>
-        <p>Список спикеров появится ближе к дате начала.</p>
-    </section>
-
-    <aside aria-labelledby="registration-heading">
-        <h2 id="registration-heading">Запись на мероприятие</h2>
-        <p>Осталось 18 из 40 мест</p>
-
-        <a href="register.html">Записаться</a>
-
-        <button type="button" aria-pressed="false">В избранное</button>
-
-        <p>
-            <span>Организатор</span><br>
-            <strong>Кафедра веб-технологий</strong>
-        </p>
-    </aside>
-
+    </nav>
 </main>
 
-<footer>
+<footer class="site-footer">
     <p>Учебный проект CampusFlow</p>
 </footer>
 
